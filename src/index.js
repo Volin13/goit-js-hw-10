@@ -17,6 +17,7 @@ function handleInput(e) {
     countryInfo.innerHTML = '';
     return;
   }
+
   fetchCountries(inputValue)
     .then(data => {
       renderMarkup(data);
@@ -29,9 +30,11 @@ function handleInput(e) {
 }
 
 function renderMarkup(countries) {
-    console.log(countries);
+  console.log(countries);
   if (countries.length > 10) {
-    Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
+    Notiflix.Notify.info(
+      'Too many matches found. Please enter a more specific name.'
+    );
     return;
   }
   if (countries.length > 2 && countries.length < 10) {
